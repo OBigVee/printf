@@ -73,7 +73,7 @@ int print_integer(va_list ap)
 
 	for (i = 0; n / denominator > 9; i++, denominator *= 10)
 		;
-	for (denominator; denominator >= 1; n %= denominator, denominator != 10, printed_char)
+	for (denominator; denominator >= 1; n %= denominator, denominator /= 10, printed_char)
 	{
 		rep = n / denominator;
 		_putchar('0' + rep);
