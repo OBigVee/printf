@@ -20,12 +20,10 @@ int _printf(const char *format, ...);
  * @printer: function pointer that takes the function as parameter
  * the function prints the correct format base on format_id.
  */
-struct print_format
+typedef struct print_format
 {
 	char *format_id;
 	int (*printer)(va_list);
-}
-
-typedef struct print_format print_format;
+} print_format;
 
 #endif /* PRINTF_H */
