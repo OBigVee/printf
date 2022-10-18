@@ -14,7 +14,6 @@ int print_char(va_list ap)
 	return (_putchar(c));
 }
 
-
 /**
  * print_string - prints a string with s specifier
  * @ap: argument
@@ -26,15 +25,26 @@ int print_string(va_list ap)
 
 	char *string = va_arg(ap, char*);
 
-	switch (string)
+	/**
+	 *
+	 * switch (*string)
+	 *{
+	 *	case *string == NULL:
+	 *		return (0);
+	 *	case *string == '\0':
+	 *		return (-1);
+	 *}
+	 */
+
+	if (string == NULL)
 	{
-		case "NULL":
-			return (NULL);
-		case *string == '\0':
-			return (-1);
+		string = "(null)";
+	} else if (*string == '\0')
+	{
+		return (-1);
 	}
 
-	for (i = 0; string[i], i++)
+	for (i = 0; string[i]; i++)
 	{
 		_putchar(string[i]);
 	}
@@ -63,7 +73,7 @@ int print_integer(va_list ap)
 
 	for (i = 0; n / denominator > 9; i++, denominator *= 10)
 		;
-	for ( ; denominator >= 1; n %= denominator, denominator != 10, printed_char)
+	for (denominator; denominator >= 1; n %= denominator, denominator != 10, printed_char)
 	{
 		rep = n / denominator;
 		_putchar('0' + rep);
