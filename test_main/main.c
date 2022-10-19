@@ -2,11 +2,14 @@
 #include <stdio.h>
 #include "main.h"
 
+int _putchar(char c);
+
 /**
  * main - Entry point
  *
  * Return: Always 0
  */
+
 int main(void)
 {
     int len;
